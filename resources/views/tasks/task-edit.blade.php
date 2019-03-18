@@ -9,7 +9,7 @@
         @include('common.errors')
 
         <!-- New Task Form -->
-        <form action="{{ url('task/store') }}" method="PUT" class="form-horizontal">
+        <form action="{{ url('task/store') }}" method="POST" class="form-horizontal">
             {!! csrf_field() !!}
             <input type="hidden" name="id" value="{{$task->id}}">
             <!-- Task Name -->
@@ -26,14 +26,14 @@
                     <select name="status" id="inputstatus" class="form-control" required="required">
                         <option value="">--Status--</option>
                         <option <?=$task->status=="ACTIVE"?"selected=selected":""?> value="ACTIVE">Active</option>
-                        <option <?=$task->status=="DONE"?"selected=selected":""?> value="DONE">Female</option>
-                        <option <?=$task->status=="DELECTED"?"selected=selected":""?> value="DELECTED">Female</option>
+                        <option <?=$task->status=="DONE"?"selected=selected":""?> value="DONE">Done</option>
+                        <option <?=$task->status=="DELECTED"?"selected=selected":""?> value="DELECTED">Deleted</option>
                     </select>
                 </div>
             </div>
             
             <div class="form-group">
-                <label for="description" class="col-sm-3 control-label">Desciption</label>
+                <label for="description" class="col-sm-3 control-label">Description</label>
 
                 <div class="col-sm-6">
                     <textarea name="description" id="inputdescription" class="form-control" rows="3" required="required">{{$task->description}}</textarea>
