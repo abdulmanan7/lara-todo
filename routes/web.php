@@ -10,7 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/**
+ * Show Task Dashboard
+ */
+Route::get('/', "TaskController@index");
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * Add New Task
+ */
+Route::post('/task', "TaskController@Create");
+/**
+ * Update Task
+ */
+Route::put('/task/update', 'TaskController@update');
+
+/**
+ * Delete Task
+ */
+Route::delete('/task/{task}', "TaskController@delete");
