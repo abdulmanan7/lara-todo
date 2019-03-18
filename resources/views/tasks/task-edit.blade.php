@@ -43,9 +43,10 @@
             <!-- Add Task Button -->
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-success">
                         <i class="fa fa-plus"></i> Update Task
                     </button>
+                    <a href="/" class="btn btn-default">Back</a>
                 </div>
             </div>
         </form>

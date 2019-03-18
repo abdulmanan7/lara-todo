@@ -22,7 +22,7 @@ Route::post('/task', "TaskController@Create");
 /**
  * Save Task
  */
-Route::post('/store', "TaskController@store");
+Route::post('/task/store', "TaskController@store");
 /**
  * Update Task
  */

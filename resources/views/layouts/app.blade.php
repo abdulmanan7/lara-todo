@@ -13,9 +13,18 @@
 
     <body>
         <div class="container">
-            <nav class="navbar navbar-default">
-                <!-- Navbar Contents -->
-            </nav>
+            <!-- <nav class="navbar navbar-default">
+            </nav> -->
+            @if (\Session::has('msg'))
+                <div class="alert alert-success">
+                    {!! \Session::get('msg') !!}
+                </div>
+            @endif
+            @if (\Session::has('err'))
+                <div class="alert alert-danger">
+                    {!! \Session::get('err') !!}
+                </div>
+            @endif
         </div>
         <div class="container">
             @yield('content')

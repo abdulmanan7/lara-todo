@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Task;
 use Illuminate\Http\Request;
 use App\Http\Requests\TaskPostRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class TaskController extends Controller
 {
@@ -25,8 +26,12 @@ class TaskController extends Controller
         $task->title = $request->title;
         $task->description = $request->description;
         $task->status = $request->status;
-        $task->save();
-        return redirect('/');
+        $isUpdated = $task->save();
+        if($isUpdated){
+            return Redirect::back()->with('msg', 'Update successfull !');
+        }else{
+            return Redirect::back()->withErrors('err', 'Failed to update please try later.');
+        }
     }
     public function update($taskId=NULL){
         if(!$taskId || !is_numeric($taskId)){
