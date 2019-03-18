@@ -37,15 +37,25 @@ class TaskController extends Controller
         if(!$taskId || !is_numeric($taskId)){
             return redirect('/')
               ->withInput()
-              ->withErrors($validator);
+              ->withErrors('err', 'Provided ID is not valid.');
         }
         $task = Task::find($taskId);
         return view('tasks.task-edit', [
             'task' => $task
         ]);
     }
-    public function delete(){
-        $task->delete();
-        return redirect('/');
+    public function delete($taskId){
+        if(!$taskId || !is_numeric($taskId)){
+            return redirect('/')
+              ->withInput()
+              ->withErrors('err', 'Provided ID is not valid.');
+        }
+        $task = Task::find($taskId);
+        $isDeleted = $task->delete();
+        if($isDeleted){
+            return Redirect::back()->with('msg', 'Deletion successfull !');
+        }else{
+            return Redirect::back()->withErrors('err', 'Failed to delete please try later.');
+        }
     }
 }
