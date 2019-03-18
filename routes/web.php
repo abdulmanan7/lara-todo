@@ -20,9 +20,13 @@ Route::get('/', "TaskController@index");
  */
 Route::post('/task', "TaskController@Create");
 /**
+ * Save Task
+ */
+Route::put('/store', "TaskController@store");
+/**
  * Update Task
  */
-Route::put('/task/update', 'TaskController@update');
+Route::get('/task/update/{taskId}', 'TaskController@update');
 
 /**
  * Delete Task

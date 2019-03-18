@@ -71,6 +71,9 @@
                                     <div>{{ $task->status }}</div>
                                 </td>
 
+                                <td>
+                                    <a href="/task/update/{{$task->id}}">Edit</a>
+                                </td>
                                 <!-- Delete Button -->
                                 <td>
                                     <form action="{{ url('task/'.$task->id) }}" method="POST">
